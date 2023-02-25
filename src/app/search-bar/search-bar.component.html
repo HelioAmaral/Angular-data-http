@@ -1,1 +1,7 @@
-<p>search-bar works!</p>
+<!--Input element with an event binding syntax (input) whenever an input event happends we bind a callback method and we pass the $event.target.valu-->
+
+<!--we can use this method to update the term property in the searchbar.component.ts, if we do this we dont need to create the callback method inside the component.ts-->
+<input (input)="term = $any($event.target).value"/>
+
+<!--if we use this method, we need to create the onInput callback method inside the component.ts-->
+<!--<input (input)="onInput($any($event.target).value)"/>-->
