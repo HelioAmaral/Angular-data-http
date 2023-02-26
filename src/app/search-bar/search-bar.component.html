@@ -1,7 +1,10 @@
-<!--Input element with an event binding syntax (input) whenever an input event happends we bind a callback method and we pass the $event.target.valu-->
-
+<!--When we have an input wrapped with a form element, everytime we press the enterKey, an automatic submit event is trigger to whatever is inside the input-->
+<!--by default every time the browser detects a form submit he is going to try to make a backend request, this is an attempt the browser makes to submit all that information on that form, we dont't want that to happen, we want to make that form submission on our own, to make sure we keep the browser from doing that default submission we add $event to the (submit) handler and then we prevent the default in the function in the component.ts-->
+<form (submit)="onFormSubmit($event)">
+    <!--Input element with an event binding syntax (input) whenever an input event happends we bind a callback method and we pass the $event.target.value-->
 <!--we can use this method to update the term property in the searchbar.component.ts, if we do this we dont need to create the callback method inside the component.ts-->
 <input (input)="term = $any($event.target).value"/>
 
 <!--if we use this method, we need to create the onInput callback method inside the component.ts-->
 <!--<input (input)="onInput($any($event.target).value)"/>-->
+</form>

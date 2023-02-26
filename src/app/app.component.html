@@ -1,2 +1,4 @@
-<app-search-bar></app-search-bar>
+
+<!--we want to watch for the submitted event and whenever that occurs we call the method onTerm(), when the submitted event occurs it passes along some information(in this case the the search term) so we make sure we take that event and communicate it into the onTerm() method-->
+<app-search-bar (submitted)="onTerm($event)"></app-search-bar>
 <app-page-list></app-page-list>
