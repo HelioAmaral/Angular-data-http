@@ -1,9 +1,25 @@
 import { Injectable } from '@angular/core';
+//import httpClient (a class) to allow us to make the http request
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class WikipediaService {
 
-  constructor() { }
+  //dependency injection
+  constructor(private http:HttpClient){}
+
+  //method called search, whenever the method gets called we pass in the search term. This search term comes from the app component because the app component is receiving this term inside of the onTerm method.
+  //Inside of search we write the logic to reach out to the wikipedia API and make that request
+  search(term: string){
+    return 'wikipedia API';
+  }
+
+  
 }
+
+//SERVICES:
+//Used to fetch/store/update any kind of data in our app
+//always implemented as classes
+//Angular will automatically create a single instance of each service
