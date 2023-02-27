@@ -1,17 +1,25 @@
 <table class="table is-striped">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Word Count</th>
-            <th>Snippet</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let page of pages">
-            <td>{{page.title}}</td>
-            <td>{{page.wordcount}}</td>
-            <td>{{page.snippet}}</td>
-        </tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Word Count</th>
+      <th>Snippet</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let page of pages">
+      <td>
+        <!--wrapping the {{page.title}} with the <a> tag turns the title into a link, the [href] property allows us to follow the path to the link, we get the id for that link from the ngFor loop page and then we take the id from that page with pageid-->
+        <!--target _blank in the <a> tag, makes this link to open in a new tab-->
+        <a
+          target="_blank"
+          [href]="'https://en.wikipedia.org?curid=' + page.pageid"
+        >
+          {{ page.title }}
+        </a>
+      </td>
+      <td>{{ page.wordcount }}</td>
+      <td [innerHTML]="page.snippet"></td>
+    </tr>
+  </tbody>
 </table>
-
